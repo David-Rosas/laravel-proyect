@@ -1,0 +1,25 @@
+@import "node_modules/bootstrap/scss/bootstrap";
+
+$color: green;
+
+nav{
+
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
+}
+
+.active{
+	text-decoration: none;
+	color: $color;
+}
+
+.error{
+	color: red;
+	font-size: 12px;
+}
+
+nav{
+	background-color: green; 
+
+}
