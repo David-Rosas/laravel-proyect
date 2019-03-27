@@ -7,7 +7,7 @@ Route::get('test', function(){
 
 	$user->name = "David";
 
-	$user->email = "admin@gmail.com";
+	$user->email = "adm@gmail.com";
 
 	$user->password = bcrypt('123123');
 
