@@ -10,7 +10,10 @@ class UserController extends Controller
     function __construct()
     {
 
-        $this->middleware(['auth', 'roles:admin,estudiante']);
+        $this->middleware([
+            'auth',
+            'roles:admin,estudiante'
+    ]);
     }
      
     public function index()

@@ -5,13 +5,13 @@
 Route::get('test', function(){
 	$user = new App\User;
 
-	$user->name = "Jose";
+	$user->name = "Meralis";
 
-	$user->email = "jose@gmail.com";
+	$user->email = "admin2@gmail.com";
 
 	$user->password = bcrypt('123123');
 
-	$user->role = "moderador";
+	$user->role_id = "1";
 
 	$user->save();
 
@@ -19,6 +19,11 @@ Route::get('test', function(){
 
 
 } );
+
+Route::get('roles', function(){
+ return     \App\Role::with('user')->get();
+ 
+});
 
 Route::get('/', ['as' => 'home', 'uses' => 'PagesController@home']);
 
