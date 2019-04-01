@@ -5,13 +5,13 @@
 Route::get('test', function(){
 	$user = new App\User;
 
-	$user->name = "David";
+	$user->name = "Jose";
 
-	$user->email = "admccxx@gmail.com";
+	$user->email = "jose@gmail.com";
 
 	$user->password = bcrypt('123123');
 
-	$user->role_id = "1";
+	$user->role = "moderador";
 
 	$user->save();
 
