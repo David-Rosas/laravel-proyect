@@ -21,7 +21,11 @@
 				<td>{{ $user->id }}</td>
 				<td>{{ $user->name }}</td>
 				<td>{{ $user->email }}</td>
-				<td>{{ $user->role->name_display }}</td>
+				<td>
+					@foreach ($user->roles as $role)
+					{{ $role->name_display }}
+					@endforeach
+				</td>	
 				<td></td>
 
 			</tr>
