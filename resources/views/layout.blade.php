@@ -26,7 +26,7 @@
     <a class="{{ activeMenu('saludos*') }} nav-link " href="{{ route('saludos', 'jorge') }}">Saludo</a>
   </li>
   <li class="nav-item">
-   <a class="{{ activeMenu('messages/create') }} nav-link " href="{{ route('messages.create') }}"> Contacto</a>
+   <a class="{{ activeMenu('messages/create') }} nav-link " href="{{ route('messages.create') }}">Contacto</a>
   </li>  
     @if(auth()->check())
     <li class="nav-item">
@@ -50,7 +50,8 @@
            {{ auth()->user()->name }}
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="/logout">Cerra sesion</a>
+          <a class="dropdown-item" href="/logout">Cerra sesión</a>
+          <a class="dropdown-item" href="/user/{{ auth()->id() }}/edit">Mi cuenta</a>
         </div>
       </li>
       @else

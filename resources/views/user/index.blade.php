@@ -26,7 +26,13 @@
 					{{ $role->name_display }}
 					@endforeach
 				</td>	
-				<td></td>
+				<td>
+					<a class="btn btn-success btn-sm" href="{{ route('user.edit', $user->id )}}"> Editar</a>
+					<form style="display: inline;" method="post" action="{{route('user.destroy', $user->id)}}">
+						{!! csrf_field() !!}
+						{!! method_field('DELETE') !!}
+					<button class="btn btn-danger btn-sm" type="submit">Eliminar</button></form>
+				</td>
 
 			</tr>
 			
