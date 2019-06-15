@@ -12,8 +12,8 @@ class UserController extends Controller
     function __construct()
     {
 
-        $this->middleware('auth');
-        $this->middleware('roles:admin', ['except' => ['edit']]);
+        $this->middleware('auth', ['except' => ['show']]);
+        $this->middleware('roles:admin', ['except' => ['edit','update', 'show']]);
     }
      
     public function index()
@@ -47,7 +47,10 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+
+      $user = User::findOrFail($id);
+
+       return view('user.show', compact('user'));
     }
 
     /**
@@ -59,6 +62,9 @@ class UserController extends Controller
     public function edit($id)
     {
     $user = User::findOrFail($id);
+
+    $this->authorize('verificUser', $user);
+
     return view('user.edit', compact('user'));   
     }
 
@@ -72,7 +78,11 @@ class UserController extends Controller
     public function update(UpdateUserRequest $request, $id)
     {
        $user = User::findOrFail($id);
+
+       $this->authorize('verificUser', $user);
+
        $user->update($request->all());
+
        return back()->with('info', 'Usuario actualizado');
     }
 
@@ -84,6 +94,12 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::findOrFail($id);
+        
+        $this->authorize('verificUser', $user);
+
+        $user->delete();
+
+        return back();
     }
 }

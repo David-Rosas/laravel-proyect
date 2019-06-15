@@ -16,6 +16,21 @@ class UserPolicy
      */
     public function __construct()
     {
-        //
+       
     }
+
+    public function before($user, $ability){
+
+        if($user->isAdmin(['admin'])){
+            return true;
+        }
+
+    }
+
+    public function verificUser(User $authUser, User $user){
+                     
+        return $authUser->id === $user->id;
+    }
+
+    
 }

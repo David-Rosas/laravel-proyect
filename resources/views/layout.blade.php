@@ -49,9 +49,9 @@
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
            {{ auth()->user()->name }}
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="/logout">Cerra sesión</a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">         
           <a class="dropdown-item" href="/user/{{ auth()->id() }}/edit">Mi cuenta</a>
+          <a class="dropdown-item" href="/logout">Cerra sesión</a>
         </div>
       </li>
       @else
